@@ -10,13 +10,12 @@ export default class App extends Component {
 	};
 
 	search = async (val) => {
-		this.setState({ loading: true });
-		const res = await search(
-			`https://api.themoviedb.org/3/search/movie?query=${val}&api_key=dbc0a6d62448554c27b6167ef7dabb1b`
+		this.setState({ loading: true });        
+        const res = await search(
+			`https://api.themoviedb.org/3/search/movie?api_key=dbc0a6d62448554c27b6167ef7dabb1b&query=${val}`
 		);
 
 		const movies = res;
-
 		this.setState({ movies, loading: false });
 	};
 
@@ -28,7 +27,7 @@ export default class App extends Component {
 	get renderMovies() {
 		let movies = <h1>Theres no movies</h1>;
 		if (this.state.movies) {
-			movies = <Movies list={this.state.movies} />;
+			movies = <Movies movies={this.state.movies} />;
 		}
 
 		return movies;

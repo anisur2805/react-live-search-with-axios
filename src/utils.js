@@ -13,24 +13,25 @@ const makeRequestCreator = () => {
 		}
 		// Create a new CancelToken
 		cancel = axios.CancelToken.source();
+
 		try {
 			if (resources[query]) {
 				return resources[query];
 			}
 			const res = await axios(query, { cancelToken: cancel.token });
-			const result = res.data.result;
+			const result = res.data.results;
 
 			resources[query] = result;
-			return result;
+			// return result;
+			return resources;
 		} catch (error) {
-			if (axios.isCancel(error)) {
-				// Handle if request was cancelled
+			if (axios.isCancel(error)) {                
 				console.log("Request canceled", error.message);
 			} else {
-				// Handle usual errors
 				console.log("Something went wrong: ", error.message);
 			}
 		}
+
 	};
 };
 
