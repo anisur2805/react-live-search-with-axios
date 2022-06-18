@@ -27,7 +27,7 @@ export default class App extends Component {
 	get renderMovies() {
 		let movies = <h1>Theres no movies</h1>;
 		if (this.state.movies) {
-			movies = <Movies list={this.state.movies} />;
+			movies = <Movies movies={this.state.movies} />;
 		}
 
 		return movies;
