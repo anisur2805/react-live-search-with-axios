@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import CountryStateCity from "./CountryStateCity";
 import Movies from "./Movies";
 import { search } from "./utils";
 
@@ -12,12 +13,10 @@ export default class App extends Component {
 	search = async (val) => {
 		this.setState({ loading: true });
 		const res = await search(
-			`https://api.themoviedb.org/3/search/movie?query=${val}&api_key=dbc0a6d62448554c27b6167ef7dabb1b`
+			`https://api.themoviedb.org/3/search/movie?api_key=dbc0a6d62448554c27b6167ef7dabb1b&query=${val}`
 		);
 
-		const movies = res;
-
-		this.setState({ movies, loading: false });
+		this.setState({ movies: res, loading: false });
 	};
 
 	onChangeHandler = async (e) => {
@@ -42,6 +41,8 @@ export default class App extends Component {
 					placeholder="Type something to search"
 				/>
 				{this.renderMovies}
+
+                <CountryStateCity />
 			</div>
 		);
 	}
