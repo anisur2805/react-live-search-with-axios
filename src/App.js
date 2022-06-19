@@ -3,7 +3,7 @@ import CountryStateCity from "./CountryStateCity";
 import Movies from "./Movies";
 import { search } from "./utils";
 
-export default class App extends Component {
+class App extends Component {
 	state = {
 		movies: null,
 		loading: false,
@@ -47,3 +47,5 @@ export default class App extends Component {
 		);
 	}
 }
+
+export default App;
