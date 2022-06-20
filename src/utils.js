@@ -33,3 +33,7 @@ const makeRequestCreator = () => {
 };
 
 export const search = makeRequestCreator();
+
+export const  getRequest = async (query) => {
+    return await axios(query, { });
+}

@@ -55,7 +55,7 @@ export default function CountryStateCity() {
     };
 
     const countryMapping = () => {
-        console.log( "countries", countries )
+        // console.log( "countries", countries )
         return countries.map((country, index) => {
             return (
                 <option value={country.isoCode} key={index}>
