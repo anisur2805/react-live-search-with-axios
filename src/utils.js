@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const resources = {};
+const resources = [];
 
 const makeRequestCreator = () => {
 	let cancel;
@@ -19,7 +19,8 @@ const makeRequestCreator = () => {
 			const res = await axios(query, { cancelToken: cancel.token });
 			const result = res.data.results;
 			resources[query] = result;
-			// return result;
+
+            // return result;
 			return resources;
 		} catch (error) {
 			if (axios.isCancel(error)) {

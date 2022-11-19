@@ -15,7 +15,6 @@ class App extends Component {
 		const res = await search(
 			`https://api.themoviedb.org/3/search/movie?api_key=dbc0a6d62448554c27b6167ef7dabb1b&query=${val}`
 		);
-
 		this.setState({ movies: res, loading: false });
 	};
 
@@ -25,7 +24,7 @@ class App extends Component {
 	};
 
 	get renderMovies() {
-		let movies = <h1>Theres no movies</h1>;
+		let movies;
 		if (this.state.movies) {
 			movies = <Movies movies={this.state.movies} />;
 		}
